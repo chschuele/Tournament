@@ -41,82 +41,109 @@
   <div class="backgroundImage"></div>
   <div class="abstandTop"></div>
   <div class="container-fluid mr-auto">
-  <h2 class="heading">Spielplan-Generator</h2>
-  <form>
-    <div class="form-group row">
-      <label for="inputTournierName" class="col-sm-2 col-form-label">Tourniername</label>
-      <div class="col-sm-10">
-        <input type="tournierName" class="form-control" id="inputTournierName" placeholder="Tourniername">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="inputTeam1" class="col-sm-2 col-form-label">Teams</label>
-      <div class="col-sm-10">
-        <input type="teams" class="form-control" id="inputTeam1" placeholder="Teams">
-      </div>
-    </div>
-      <button class ="btnFertig" type="button"><span>Fertig</span></button>
-    </div>
-<!-- Bottom Navigation Menu -->    <!-- Footer -->
-    <footer class="page-footer font-small blue fixed-bottom">
-      <div class="container-fluid text-center text-md-left">
-        <div class="row">
-          <div class="col-md-3 mt-md-0 mt-3">
-            <h6 class="text-uppercase">Du magst Tournament?</h6>
-            <p class="textDarunter">Empfehle uns deinen Freunden!</p>
-            <a href="#" class="fa fa-facebook"></a>
-            <a href="#" class="fa fa-twitter"></a>
-            <a href="#" class="fa fa-instagram"></a>
-            <a href="#" class="fa fa-pinterest"></a>
-          </div>
-          <div class="col-md-3 mt-md-0 mt-3">
-            <p class="text-uppercase" style="margin-bottom: 50px;"></p>
-            <p class="textDarunter">Lad uns doch auf ein Bier ein!</p>
-            <a href="#" class="fa fa-paypal"></a>
-            <a href="#" class="fa fa-cc-visa"></a>
-          </div>
-          <hr class="clearfix w-100 d-md-none pb-3">
-          <div class="col-md-3 mb-md-0 mb-3">
-            <h6 class="text-uppercase">Support</h6>
-            <hr class="deep-purple accent-2 mb-3 mt-0 d-inline-block mx-auto" style="width: 60px;">
-            <ul class="list-unstyled support__list">
-              <li>
-                <a href="#!">Hilfe</a>
-              </li>
-              <li>
-                <a href="#!">Kontakt</a>
-              </li>
-              <li>
-                <a href="#!">FAQ</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-3 mb-md-0 mb-3">
-            <h6 class="text-uppercase">Über uns</h6>
-            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-            <ul class="list-unstyled">
-              <li>
-                <a href="#!">AGB</a>
-              </li>
-              <li>
-                <a href="#!">Impressum</a>
-              </li>
-              <li>
-                <a href="#!">Datenschutz</a>
-              </li>
-              <li>
-                <a href="#!">Nutzungsbedingungen</a>
-              </li>
-            </ul>
-          </div>
+    <h2 class="heading"><b>Spielplan-Generator</b></h2>
+    <form>
+      <div class="form-group row">
+        <label for="inputTournierName" class="col-sm-2 col-form-label"><b>Tourniername</b></label>
+        <div class="col-sm-10">
+          <input type="tournierName" class="form-control" id="inputTournierName" placeholder="Tourniername">
         </div>
       </div>
-    </footer>
-    <!-- Footer -->
+      <p class="infoText"><b>Bitte tragen Sie mindestens 4 Teams ein und fügen Sie bitte eine gerade Anzahl an Teams hinzu.</b></p>
+      <div class="form-group row">
+        <label for="inputTeam1" class="col-sm-2 col-form-label"><b>Team 1</b></label>
+        <div class="col-sm-10">
+          <input type="team1" class="form-control" id="inputTeam1" placeholder="Team 1">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputTeam2" class="col-sm-2 col-form-label"><b>Team 2</b></label>
+        <div class="col-sm-10">
+          <input type="team2" class="form-control" id="inputTeam2" placeholder="Team 2">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputTeam3" class="col-sm-2 col-form-label"><b>Team 3</b></label>
+        <div class="col-sm-10">
+          <input type="team3" class="form-control" id="inputTeam3" placeholder="Team 3">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputTeam4" class="col-sm-2 col-form-label"><b>Team 4</b></label>
+        <div class="col-sm-10">
+          <input type="team4" class="form-control" id="inputTeam4" placeholder="Team 4">
+        </div>
+        <button class="btnTeam" type="button">Team hinzufügen</button>
+      </div>
+      <div class="form-group row">
+        <label for="example-date-input" class="col-2 col-form-label"><b>Startdatum</b></label>
+        <div class="col-10">
+          <input class="form-control" type="date" value="2019-01-01" id="example-date-input">
+        </div>
+      </div>
+      <button class="btnFertig" type="button"><span>Fertig</span></button>
+  </div>
+  <!-- Bottom Navigation Menu -->
+  <!-- Footer -->
+  <footer class="page-footer font-small blue fixed-bottom">
+    <div class="container-fluid text-center text-md-left">
+      <div class="row">
+        <div class="col-md-3 mt-md-0 mt-3">
+          <h6 class="text-uppercase">Du magst Tournament?</h6>
+          <p class="textDarunter">Empfehle uns deinen Freunden!</p>
+          <a href="#" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-twitter"></a>
+          <a href="#" class="fa fa-instagram"></a>
+          <a href="#" class="fa fa-pinterest"></a>
+        </div>
+        <div class="col-md-3 mt-md-0 mt-3">
+          <p class="text-uppercase" style="margin-bottom: 50px;"></p>
+          <p class="textDarunter">Lad uns doch auf ein Bier ein!</p>
+          <a href="#" class="fa fa-paypal"></a>
+          <a href="#" class="fa fa-cc-visa"></a>
+        </div>
+        <hr class="clearfix w-100 d-md-none pb-3">
+        <div class="col-md-3 mb-md-0 mb-3">
+          <h6 class="text-uppercase">Support</h6>
+          <hr class="deep-purple accent-2 mb-3 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <ul class="list-unstyled support__list">
+            <li>
+              <a href="#!">Hilfe</a>
+            </li>
+            <li>
+              <a href="#!">Kontakt</a>
+            </li>
+            <li>
+              <a href="#!">FAQ</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-md-0 mb-3">
+          <h6 class="text-uppercase">Über uns</h6>
+          <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">AGB</a>
+            </li>
+            <li>
+              <a href="#!">Impressum</a>
+            </li>
+            <li>
+              <a href="#!">Datenschutz</a>
+            </li>
+            <li>
+              <a href="#!">Nutzungsbedingungen</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer -->
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>

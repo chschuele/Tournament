@@ -12,7 +12,27 @@ body {
   z-index: 10;
   position: fixed;
 }
+.abstandTop{
+  padding: 60px;
+}
 
+.heading{
+  font-family:Viga;
+  margin-bottom: 50px;
+}
+
+.heading2{
+  text-align: center;
+  padding: 50px;
+}
+.unterHeading2{
+    text-align: center;
+}
+.untererContainer-fluid{
+  position: relative;
+  z-index: 5;
+  background-color: #E19026;
+}
 .container-fluid {
   position: relative;
   z-index: 5;
