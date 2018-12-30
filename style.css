@@ -1,40 +1,63 @@
-html, body {
-    background:url("./Pictures/children.jpg") center center no-repeat;
-    height: 100%;
+body {
+  height: 200vh;
 }
-
-
 
 .navbar .navbar__logo {
-  max-height: 30px;
-}
-/* Places navbar at the bottom*/
-.navbarBottom {
-  background-color: #333;
-  overflow: hidden;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-/* Style the links inside the navigation bar */
-.navbarBottom a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+  max-height: 35px;
 }
 
-/* Change the color of links on hover */
-.navbarBottom a:hover {
-  background-color: #ddd;
+.navbar{
+  font-size: 15px;
+  width: 100%;
+  z-index: 10;
+  position: fixed;
+}
+
+.container-fluid {
+  position: relative;
+  z-index: 5;
+}
+
+.backgroundImage {
+  background-image: url("./Pictures/children.jpg");
+  background-size: cover;
+  background-position: center center;
+  padding: 20px;
+  width: 100%;
+  position: fixed;
+  height: 100vh;
+  z-index: 3;
+}
+
+.page-footer{
+  padding: 20px;
+  background: white;
+}
+
+.page-footer .text-uppercase{
+  font-size: 12px;
+}
+.page-footer .textDarunter{
+  margin-top: 35px;
+  text-align: left;
+  font-size: 11px;
+}
+.list-unstyled a{
+  color: grey;
+  font-size: 11px;
+}
+
+/* Style icons */
+.fa {
+  padding: 10px;
+  font-size: 20px;
+  width: 50px;
+  text-align: left;
+  text-decoration: none;
   color: black;
 }
 
-/* Add a color to the active/current link */
-.navbarBottom a.active {
-  background-color: #4CAF50;
-  color: white;
+/*hover effect */
+.fa:hover {
+  opacity: 0.7;
 }
