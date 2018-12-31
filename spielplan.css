@@ -1,5 +1,5 @@
 body {
-  height: 200vh;
+  height: 120vh;
 }
 
 .navbar .navbar__logo {
@@ -34,14 +34,23 @@ body {
   position: relative;
   z-index: 5;
 }
+.section__first {
+  height: 89vh;
+}
+
+.section__second {
+  background-color: white;
+  padding: 35px;
+}
 
 .spieltag{
   background-color: #E19026;
 }
 
 .page-footer{
-  padding: 20px;
+  padding: 22px;
   background: white;
+  padding: 0px !important;
 }
 
 .page-footer .text-uppercase{

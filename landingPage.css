@@ -20,24 +20,38 @@ body {
   font-family:Viga;
   margin-bottom: 50px;
 }
+.unterHeading{
+  font-family:Viga;
+}
 
 .heading2{
+  font-family:Viga;
   text-align: center;
-  padding: 50px;
+  padding-bottom: 30px;
 }
 .unterHeading2{
-    font-family:Viga;
     text-align: center;
 }
 .untererContainer-fluid{
   position: relative;
   z-index: 5;
   background-color: #E19026;
+  padding: 60px;
 }
 .container-fluid {
   position: relative;
   z-index: 5;
 }
+
+.section__first {
+  height: 89vh;
+}
+
+.section__second {
+  background-color: white;
+  padding: 35px;
+}
+
 
 .backgroundImage {
   background-image: url("./Pictures/children.jpg");
@@ -51,8 +65,9 @@ body {
 }
 
 .page-footer{
-  padding: 20px;
+  padding: 22px;
   background: white;
+  padding: 0px !important;
 }
 
 .page-footer .text-uppercase{
