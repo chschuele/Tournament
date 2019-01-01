@@ -8,9 +8,6 @@
   z-index: 10;
   position: fixed;
 }
-body {
-  height: 150vh;
-}
 .backgroundImage {
   background-image: url("./Pictures/backgroundChildren.jpg");
   background-size: cover;
@@ -30,19 +27,37 @@ body {
 }
 
 .section__first {
-  height: 89vh;
+  margin-bottom: 50px;
+}
+
+.spielplan {
+  display: none;
+}
+.rangliste {
+  display: none;
+}
+.nav {
+    color: black;
+}
+
+.nav>li>a {
+    background-color: #E19026 !important;
+    color: white;
 }
 
 .section__second {
   background-color: white;
   padding: 35px;
 }
+
 .heading{
   padding-bottom: 25px;
   text-align: center;
   font-family: Viga;
 }
-
+.abstand{
+  padding: 25px;
+}
 .infoText{
   margin-top: 30px;
   margin-bottom: 20px;
@@ -58,9 +73,8 @@ body {
   display: inline-block;
   font-size: 16px;
   border-radius: 8px;
-}
-.btnTeam__add {
   float: right;
+  margin-bottom: 20px;
 }
 .btnFertig{
     background-color: #E19026;
@@ -75,14 +89,19 @@ body {
     font-size: 16px;
     border-radius: 8px;
 }
-.btnFertig span {
+
+.abstandZumFooter{
+  padding: 50px;
+}
+
+.button__effekt span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-.btnFertig span:after {
+.button__effekt span:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
@@ -91,27 +110,28 @@ body {
   transition: 0.5s;
 }
 
-.btnFertig:hover span {
+.button__effekt:hover span {
   padding-right: 25px;
 }
 
-.btnFertig:hover span:after {
+.button__effekt:hover span:after {
   opacity: 1;
   right: 0;
 }
-.btnFertig:hover {
+
+.button__effekt:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 .untererAbstand{
     padding: 60px;
 }
+
 .page-footer{
   padding: 22px;
   background: white;
   padding: 0px !important;
 }
-
 
 .page-footer .text-uppercase{
   font-size: 12px;

@@ -12,6 +12,7 @@ body {
   z-index: 10;
   position: fixed;
 }
+
 .abstandTop{
   padding: 60px;
 }
@@ -20,8 +21,26 @@ body {
   font-family:Viga;
   margin-bottom: 50px;
 }
+
 .unterHeading{
   font-family:Viga;
+}
+
+.unterHeading__abstand{
+  margin-bottom: 20px;
+}
+
+.btnSpieplanGenerator{
+  background-color: #E19026;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+  float: left;
 }
 
 .heading2{
@@ -29,9 +48,57 @@ body {
   text-align: center;
   padding-bottom: 30px;
 }
+
 .unterHeading2{
     text-align: center;
 }
+
+.wrapper{
+  margin-top: 40px;
+  text-align: center;
+}
+
+.btnSpieplanGenerator2{
+  background-color: #352624;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.button__effekt span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button__effekt span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button__effekt:hover span {
+  padding-right: 25px;
+}
+
+.button__effekt:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.button__effekt:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
 .untererContainer-fluid{
   position: relative;
   z-index: 5;

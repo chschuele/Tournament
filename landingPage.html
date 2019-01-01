@@ -19,14 +19,14 @@
 <body>
   <!-- obere Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#" style="padding: 4px;margin:auto"> <img class="navbar__logo" src="./Pictures/Logo.png"></a>
+    <a class="navbar-brand" href="landingPage.html" style="padding: 4px;margin:auto"> <img class="navbar__logo" src="./Pictures/Logo.png"></a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="landingPage.html">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Kontakt</a>
@@ -43,14 +43,18 @@
   <div class="container-fluid section__first mr-auto">
     <h1 class="heading">Dein Turnierplan</h1>
     <h5 class="unterHeading">Erstelle kostenlos </h5>
-    <h5 class="unterHeading">und mit wenig Aufwand dein eigenes Turnier!</h5>
+    <h5 class="unterHeading unterHeading__abstand">und mit wenig Aufwand dein eigenes Turnier!</h5>
+    <a href="spielplanGenerator.html#"><button class="btnSpieplanGenerator button__effekt" type="button"><span>Turnierplan erstellen</span></button></a>
   </div>
   <div class="untererContainer-fluid mr-auto text">
     <h2 class="heading2">Entdecke die Möglichkeiten</h2>
     <h4 class="unterHeading2">Mit Tournament ist die Turnierplanung schnell und einfach.</h4>
     <h4 class="unterHeading2">Trage einfach deine Teams ein und dein persönlicher Turnierplan mit Hinrunde und Rückrunde wird erstellt.</h4>
     <h4 class="unterHeading2">Du kannst deine Ergebnisse eintragen und in deiner Rangliste sehen wer das Turnier gewinnt!</h4>
-    <h4 class="unterHeading2">Probiere unseren Turnierplaner einfach kostenlos aus!</h4>
+    <h4 class="unterHeading2 unterHeading2__abstand">Probiere unseren Turnierplaner einfach kostenlos aus!</h4>
+    <div class="wrapper">
+      <a href="spielplanGenerator.html#"><button class="btnSpieplanGenerator2 button__effekt" type="button"><span>Turnierplan erstellen</span></button></a>
+    </div>
   </div>
 
 
@@ -111,10 +115,12 @@
     </div>
   </footer>
   <!-- Footer -->
-
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="main.js"></script>
 </body>
 
 </html>

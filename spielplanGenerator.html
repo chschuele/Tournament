@@ -19,14 +19,14 @@
 <body>
   <!-- obere Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#" style="padding: 4px;margin:auto"> <img class="navbar__logo" src="./Pictures/Logo.png"></a>
+    <a class="navbar-brand" href="landingPage.html" style="padding: 4px;margin:auto"> <img class="navbar__logo" src="./Pictures/Logo.png"></a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="landingPage.html">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Kontakt</a>
@@ -42,55 +42,156 @@
   <div class="backgroundImage"></div>
   <div class="abstandTop"></div>
   <div class="container-fluid section__first mr-auto">
-    <h2 class="heading"><b>Spielplan-Generator</b></h2>
-    <form>
-      <div class="form-group row">
-        <label for="inputTournierName" class="col-sm-2 col-form-label"><b>Tourniername</b></label>
-        <div class="col-sm-10">
-          <input type="tournierName" class="form-control" id="inputTournierName" placeholder="Tourniername">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item spielplanGenerator">
+        <a class="nav-link active" id="spielplanGenerator-tab" data-toggle="tab" href="#spielplanGenerator" role="tab" aria-controls="spielplanGenerator" aria-selected="true">Generator</a>
+      </li>
+      <li class="nav-item spielplan">
+        <a class="nav-link" id="spielplan-tab" data-toggle="tab" href="#spielplan" role="tab" aria-controls="spielplan" aria-selected="false">Spielplan</a>
+      </li>
+      <li class="nav-item rangliste">
+        <a class="nav-link" id="rangliste-tab" data-toggle="tab" href="#rangliste" role="tab" aria-controls="rangliste" aria-selected="false">Rangliste</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="spielplanGenerator" role="tabpanel" aria-labelledby="spielplanGenerator-tab">
+        <div class="abstand"></div>
+        <h2 class="heading"><b>Spielplan-Generator</b></h2>
+        <form>
+          <div class="form-group row">
+            <label for="inputTournierName" class="col-sm-2 col-form-label"><b>Tourniername</b></label>
+            <div class="col-sm-10">
+              <input type="tournierName" class="form-control" id="inputTournierName" placeholder="Tourniername">
+            </div>
+          </div>
+          <p class="infoText"><b>Bitte tragen Sie mindestens 4 Teams ein und fügen eine gerade Anzahl an Teams hinzu.</b></p>
+          <div class="form-group row">
+            <label for="inputTeam1" class="col-sm-2 col-form-label"><b>Team 1</b></label>
+            <div class="col-sm-10">
+              <input type="team1" class="form-control" id="inputTeam1" placeholder="Team 1">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputTeam2" class="col-sm-2 col-form-label"><b>Team 2</b></label>
+            <div class="col-sm-10">
+              <input type="team2" class="form-control" id="inputTeam2" placeholder="Team 2">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputTeam3" class="col-sm-2 col-form-label"><b>Team 3</b></label>
+            <div class="col-sm-10">
+              <input type="team3" class="form-control" id="inputTeam3" placeholder="Team 3">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputTeam4" class="col-sm-2 col-form-label"><b>Team 4</b></label>
+            <div class="col-sm-10">
+              <input type="team4" class="form-control" id="inputTeam4" placeholder="Team 4">
+            </div>
+          </div>
+          <div class="extra__team">
+
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-10">
+            </div>
+            <div class="col-sm-2">
+              <button onclick="addTeam(4)" class="btnTeam button__effekt" type="button"><span>Team hinzufügen</span></button>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="example-date-input" class="col-2 col-form-label"><b>Startdatum</b></label>
+            <div class="col-10">
+              <input class="form-control" type="date" value="2019-01-01" id="example-date-input">
+            </div>
+          </div>
+          <button class="btnFertig button__effekt" type="button"><span>Fertig</span></button>
+        </form>
+      </div>
+      <div class="tab-pane fade" id="spielplan" role="tabpanel" aria-labelledby="spielplan-tab">
+        <div class="container-fluid section__first mr-auto">
+          <h1 class="heading">Dein Turnierplan</h1>
+          <table class="table table-striped table-dark">
+            <thead>
+              <tr class="spieltag">
+                <th scope="col">Hinrunde</th>
+                <th scope="col">1. Spieltag, & ein Datum</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+              <tr>
+                <th scope="col">Nr.</th>
+                <th scope="col">Heim</th>
+                <th scope="col">Gast</th>
+                <th scope="col">Ergebnis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      <p class="infoText"><b>Bitte tragen Sie mindestens 4 Teams ein und fügen eine gerade Anzahl an Teams hinzu.</b></p>
-      <div class="form-group row">
-        <label for="inputTeam1" class="col-sm-2 col-form-label"><b>Team 1</b></label>
-        <div class="col-sm-10">
-          <input type="team1" class="form-control" id="inputTeam1" placeholder="Team 1">
+      <div class="tab-pane fade" id="rangliste" role="tabpanel" aria-labelledby="rangliste-tab">
+        <div class="container-fluid section__first mr-auto">
+          <h1 class="heading">Deine Rangliste</h1>
+          <table class="table table-striped table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Nr.</th>
+                <th scope="col">Team</th>
+                <th scope="col">Spiele</th>
+                <th scope="col">Punkte</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-      <div class="form-group row">
-        <label for="inputTeam2" class="col-sm-2 col-form-label"><b>Team 2</b></label>
-        <div class="col-sm-10">
-          <input type="team2" class="form-control" id="inputTeam2" placeholder="Team 2">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="inputTeam3" class="col-sm-2 col-form-label"><b>Team 3</b></label>
-        <div class="col-sm-10">
-          <input type="team3" class="form-control" id="inputTeam3" placeholder="Team 3">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="inputTeam4" class="col-sm-2 col-form-label"><b>Team 4</b></label>
-        <div class="col-sm-10">
-          <input type="team4" class="form-control" id="inputTeam4" placeholder="Team 4">
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-sm-10">
-        </div>
-        <div class="col-sm-2">
-          <button class="btnTeam btnTeam__add" type="button">Team hinzufügen</button>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="example-date-input" class="col-2 col-form-label"><b>Startdatum</b></label>
-        <div class="col-10">
-          <input class="form-control" type="date" value="2019-01-01" id="example-date-input">
-        </div>
-      </div>
-      <button class="btnFertig" type="button"><span>Fertig</span></button>
+    </div>
   </div>
-  <div class="untererAbstand"></div>
   <!-- Footer -->
   <footer class="page-footer font-small blue">
     <div class="container-fluid section__second text-center text-md-left">
@@ -147,10 +248,10 @@
     </div>
   </footer>
   <!-- Footer -->
-
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="main.js"></script>
 </body>
 
 </html>
