@@ -33,11 +33,9 @@
 .spielplan {
   display: none;
 }
+
 .rangliste {
   display: none;
-}
-.nav {
-    color: black;
 }
 
 .nav>li>a {
@@ -51,13 +49,12 @@
 }
 
 .heading{
+  padding-top: 50px;
   padding-bottom: 25px;
   text-align: center;
   font-family: Viga;
 }
-.abstand{
-  padding: 25px;
-}
+
 .infoText{
   margin-top: 30px;
   margin-bottom: 20px;
