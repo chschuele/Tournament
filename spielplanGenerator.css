@@ -73,6 +73,7 @@
   float: right;
   margin-bottom: 20px;
 }
+
 .btnFertig{
     background-color: #E19026;
     float: center;
@@ -87,6 +88,20 @@
     border-radius: 8px;
 }
 
+.btnRangliste{
+    background-color: #E19026;
+    float: center;
+    border: none;
+    color: white;
+    width: 100%;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
 .abstandZumFooter{
   padding: 50px;
 }

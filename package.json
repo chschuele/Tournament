@@ -1,0 +1,23 @@
+{
+  "name": "tournament",
+  "version": "1.0.0",
+  "description": "Hier können tournamens protokolliert werden",
+  "main": "backend.js",
+  "scripts": {
+    "start": "nodemon backend.js",
+    "start:debug": "nodemon --inspect backend.js"
+  },
+  "author": "chauntalle",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "sqlite3": "^4.0.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.2",
+    "babel-preset-env": "^1.7.0"
+  }
+}

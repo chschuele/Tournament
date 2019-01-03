@@ -34,7 +34,38 @@ function ValidateForm() {
   if (formInvalid) {
     alert('Ein oder mehrere Felder sind leer. Bitte füllen Sie alle Felder aus');
   } else {
-    $(".spielplan , .rangliste").show();
-    $('.spielplan').tab('show');
+    $(".spielplan").show();
+    $('#myTab a[href="#spielplan"]').tab('show');
+  }
+}
+//----------
+//checks if forms of are all filled
+$(document).ready(function() {
+  $(".btnRangliste").click(function() {
+    ValidateFormSpielplan();
+  });
+
+});
+
+function ValidateFormSpielplan() {
+  var formInvalidSpielplan = false;
+  var content = $("#form_Spielplan").validate();
+  var isNumeric = true;
+  $('#form_Spielplan input').each(function() {
+    if ($(this).val() === '') {
+      formInvalidSpielplan = true;
+    }
+    if (!$.isNumeric(content)) {
+      isNumeric = false;
+    }
+  });
+
+  if (formInvalidSpielplan) {
+    alert('Haben Sie alle Ergebnisse ausgefüllt? Bestehen alle Ergebnisse aus Zahlen?');
+  } else if (!isNumeric) {
+    alert('Bestehen alle Ergebnisse aus Zahlen?');
+  } else {
+    $(".rangliste").show();
+    $('#myTab a[href="#rangliste"]').tab('show');
   }
 }
