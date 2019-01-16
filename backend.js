@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require("body-parser")
 const port = process.env.PORT || 3001;
+//aufrufen der Function express
 const app = express();
 const fetch = require('node-fetch');
 const API_URL = "http://localhost:3000"
@@ -27,9 +28,6 @@ app.get('/spielplan/:id', function (req, res) {
                     name: tournament.name,
                     playDays: playDayMatches
                 }
-                createdTournament.playDays.map(playDay => {
-                    playDay.map(matches => console.log("MATCHES", matches))
-                })
                 res.render("spielplan", {tournament: createdTournament})
             })
         })
@@ -39,14 +37,12 @@ app.get('/rangliste', function (req, res) {res.render('rangliste')});
 app.post('/spielplanGenerator', function (req, res) {generateMatchPlan(req, res)})
 
 const generateMatchPlan = (req, res) => {
-    const {startDate, team, name} = req.body
+    const {team, name} = req.body
     const teamsLength = team.length
-    const parsedDate = new Date(startDate)
     const playDays = roundRobin(teamsLength, team)
     const createTournamentFetch = createTournament({name}).then(t => {
         playDays.map(playDay => {
-            const dateForPlayDay = new Date(parsedDate.setDate(parsedDate.getDate() + 1)).toString()
-            createPlayDay({startDate: dateForPlayDay, tournamentId: t.id}).then(createdPlayDay => {
+            createPlayDay({tournamentId: t.id}).then(createdPlayDay => {
                 const {id} = createdPlayDay
                 playDay.map(match => {
                     const [team1, team2] = match
@@ -61,7 +57,7 @@ const generateMatchPlan = (req, res) => {
     })
     createTournamentFetch.then(id => res.render("spielplanGenerator", {created: true, tournamentId: id}))
 }
-
+//Adding data
 const createPlayDay = data => fetch(API_URL + "/playDays", {
     method: "POST",
     headers: {'Content-Type': 'application/json'},
