@@ -1,145 +1,123 @@
 const express = require('express');
 const bodyParser = require("body-parser")
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const app = express();
-//const sqlite3 = require('sqlite3').verbose();
-//const db = new sqlite3.Database('./db/shoutbox.db');
+const fetch = require('node-fetch');
+const API_URL = "http://localhost:3000"
+
 app.set('view engine', 'ejs');
+// zeigt den Weg zu den static files, damit Bilder gezeigt werden
 app.use('/public', express.static(process.cwd() + '/public'));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+const server = app.listen(port, () => {console.log(`Server listening on port ${port}…`)});
 
-/*
-app.get('/', function(req, res) {
-  db.all('SELECT * FROM shouts', (err, row) => {
-    res.render('pages/index', {
-      title: "Test",
-      tableData: row
-    });
-  });
-});
-*/
-
-app.get('/', function(req, res) {
-  res.render('landingPage');
-});
-
-
-app.post('/generatematch', function(req, res) {
-  const { name, teams, startDate } = req.body
-  //4
-  const teams = [
-  {
-  name: "SSV"
-  },
-  {
-  name: "TSV"
-  },
-  {
-  name: "BSA"
-  },
-  {
-  name: "CCD"
-  }
-  ]
-  const teamsLength = teams.length
-  const playDayLength = teamsLength - 1
-  let playDays = []
-  for (p = 0; p < playDayLength; p++) {
-    let matches = []
-    for (i = 0; i < teamsLength; i++) {
-      matches.push({
-        team1: teams[i].name,
-        team2: teams[i + 1].name
-      })
-      i++
-  	}
-    playDays.push({
-    	startDate: "12213123",
-      matches
+app.get('/', function (req, res) {res.render('landingPage')});
+app.get('/spielplanGenerator', function (req, res) {res.render('spielplanGenerator', {created: false})});
+app.get('/spielplan/:id', function (req, res) {
+    const id = req.params.id
+    getTournament(id).then(tournament => {
+        getTournamentPlayDays(id).then(playDays => {
+            const playDayMatchesFetch = playDays.map(playDay => {
+                return getPlayDayMatches(playDay.id)
+            })
+            Promise.all(playDayMatchesFetch).then(playDayMatches => {
+                const createdTournament = {
+                    id: tournament.id,
+                    name: tournament.name,
+                    playDays: playDayMatches
+                }
+                createdTournament.playDays.map(playDay => {
+                    playDay.map(matches => console.log("MATCHES", matches))
+                })
+                res.render("spielplan", {tournament: createdTournament})
+            })
+        })
     })
-  }
-  console.log("playDays", playDays)
+});
+app.get('/rangliste', function (req, res) {res.render('rangliste')});
+app.post('/spielplanGenerator', function (req, res) {generateMatchPlan(req, res)})
 
-const generiereSpieltag = () =>
+const generateMatchPlan = (req, res) => {
+    const {startDate, team, name} = req.body
+    const teamsLength = team.length
+    const parsedDate = new Date(startDate)
+    const playDays = roundRobin(teamsLength, team)
+    const createTournamentFetch = createTournament({name}).then(t => {
+        playDays.map(playDay => {
+            const dateForPlayDay = new Date(parsedDate.setDate(parsedDate.getDate() + 1)).toString()
+            createPlayDay({startDate: dateForPlayDay, tournamentId: t.id}).then(createdPlayDay => {
+                const {id} = createdPlayDay
+                playDay.map(match => {
+                    const [team1, team2] = match
+                    const matchToCreate = {
+                        team1, team2, playdayId: id
+                    }
+                    createMatch(matchToCreate)
+                })
+            })
+        })
+        return t.id
+    })
+    createTournamentFetch.then(id => res.render("spielplanGenerator", {created: true, tournamentId: id}))
+}
 
-const spieltag = {
-    id: 1,
-    date: "21.12.12",
-      matches: [{
-      id: 1,
-      team1: "SSV HALL",
-      team2: "VFB",
-      finished: false,
-      resultTeam1: null,
-      resultTeam2: null
-    },
-    {
-      id: 2,
-      team1: "WOLFs",
-      team2: "HERTHA",
-      finished: false,
-      resultTeam1: null,
-      resultTeam2: null
-    },
-    {
-      id: 3,
-      team1: "MÜNCHEN",
-      team2: "KRÄUTER",
-      finished: false,
-      resultTeam1: null,
-      resultTeam2: null
-    },
-    {
-      id: 4,
-      team1: "SAHNE",
-      team2: "BVB",
-      finished: false,
-      resultTeam1: null,
-      resultTeam2: null
+const createPlayDay = data => fetch(API_URL + "/playDays", {
+    method: "POST",
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(data)
+}).then(res => {
+    if (res.status !== 201) {console.error("PlayDay konnte nicht erstellt werden")}
+    return res.json()
+})
+
+const createMatch = data => fetch(API_URL + "/matches", {
+    method: "POST",
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(data)
+}).then(res => {
+    if(res.status !== 201) {console.error("Match konnte nicht erstllt werden")}
+    return res.json()
+})
+
+const createTournament = data => fetch(API_URL + "/tournament", {
+    method: "POST",
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(data)
+}).then(res => {
+    if(res.status !== 201) {console.error("Tournament konnte nicht erstllt werden")}
+    return res.json()
+})
+
+const getTournament = id => fetch(API_URL + `/tournament/${id}`).then(res => res.json())
+const getTournamentPlayDays = id => fetch(API_URL + `/tournament/${id}/playdays`).then(res => res.json())
+const getPlayDayMatches = id => fetch(API_URL + `/playdays/${id}/matches`).then(res => res.json())
+
+const DUMMY = -1;
+const roundRobin = (n, ps) => {
+    let rs = []
+    if (!ps) {
+        for (var k = 1; k <= n; k += 1) {
+            ps.push(k);
+        }
+    } else {
+        ps = ps.slice();
     }
-  ]
-  }
 
-  // Team 0 spielt gegen Team 1 am startDate
-  // Und so weiter...
-  // 1 Tag später soll nochmal jeder gegen einen anderen spielen solange bis jeder gegen jeden gespielt hat.
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  const newMessage = username + "ist cool"
-  console.log("NEWMESSAGE", newMessage)
-  db.run('INSERT INTO shouts (username, message) VALUES (?,?);',[req.body.username, newMessage], error => {
-      res.render('pages/add-entry', {savedMessage: "Eintrag wurde gespeichert"});
-  })
-});
-
-
-const server = app.listen(port, () => {
- console.log(`Server listening on port ${port}…`)
-});
+    if (n % 2 === 1) {
+        ps.push(DUMMY);
+        n += 1;
+    }
+    for (var j = 0; j < n - 1; j += 1) {
+        rs[j] = []; // create inner match array for round j
+        for (var i = 0; i < n / 2; i += 1) {
+            if (ps[i] !== DUMMY && ps[n - 1 - i] !== DUMMY) {
+                rs[j].push([ps[i], ps[n - 1 - i]]); // insert pair as a match
+            }
+        }
+        ps.splice(1, 0, ps.pop()); // permutate for next round
+    }
+    return rs;
+};
 
 module.exports = server;

@@ -1,0 +1,63 @@
+{
+  "tournament": [
+    {
+      "name": "asd",
+      "id": 1
+    }
+  ],
+  "playdays": [
+    {
+      "startDate": "Thu Jan 03 2019 01:00:00 GMT+0100 (Central European Standard Time)",
+      "tournamentId": 1,
+      "id": 1
+    },
+    {
+      "startDate": "Wed Jan 02 2019 01:00:00 GMT+0100 (Central European Standard Time)",
+      "tournamentId": 1,
+      "id": 2
+    },
+    {
+      "startDate": "Fri Jan 04 2019 01:00:00 GMT+0100 (Central European Standard Time)",
+      "tournamentId": 1,
+      "id": 3
+    }
+  ],
+  "matches": [
+    {
+      "team1": "asd",
+      "team2": "sad",
+      "playdayId": 1,
+      "id": 1
+    },
+    {
+      "team1": "sad",
+      "team2": "ad",
+      "playdayId": 1,
+      "id": 2
+    },
+    {
+      "team1": "sad",
+      "team2": "asd",
+      "playdayId": 2,
+      "id": 3
+    },
+    {
+      "team1": "sad",
+      "team2": "ad",
+      "playdayId": 2,
+      "id": 4
+    },
+    {
+      "team1": "ad",
+      "team2": "asd",
+      "playdayId": 3,
+      "id": 5
+    },
+    {
+      "team1": "sad",
+      "team2": "sad",
+      "playdayId": 3,
+      "id": 6
+    }
+  ]
+}

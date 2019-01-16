@@ -1,7 +1,3 @@
-body {
-  height: 200vh;
-}
-
 .navbar .navbar__logo {
   max-height: 35px;
 }
@@ -110,18 +106,17 @@ body {
   z-index: 5;
 }
 
-.section__first {
-  height: 89vh;
-}
-
 .section__second {
   background-color: white;
   padding: 35px;
 }
 
-
-.backgroundImage {
-  background-image: url("./Pictures/children.jpg");
+.startpage-main-container {
+  height: 100vh;
+  padding-top: 20px;
+}
+.backgroundImage--children {
+  background-image: url("./images/children.jpg");
   background-size: cover;
   background-position: center center;
   padding: 20px;
