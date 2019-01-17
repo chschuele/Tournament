@@ -13,9 +13,12 @@
   padding: 60px;
 }
 
-.heading{
+.headingLandingPage{
+  padding-top: 80px;
+  padding-bottom: 25px;
   font-family:Viga;
   margin-bottom: 50px;
+  text-align: left;
 }
 
 .unterHeading{
