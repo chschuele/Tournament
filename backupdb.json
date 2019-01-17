@@ -1,0 +1,60 @@
+{
+  "tournament": [
+    {
+      "name": "Demo Tournament",
+      "id": 1
+    }
+  ],
+  "playdays": [
+    {
+      "tournamentId": 1,
+      "id": 1
+    },
+    {
+      "tournamentId": 1,
+      "id": 2
+    },
+    {
+      "tournamentId": 1,
+      "id": 3
+    }
+  ],
+  "matches": [
+    {
+      "team1": "Spieler1",
+      "team2": "Spieler2",
+      "playdayId": 1,
+      "id": 1
+    },
+    {
+      "team1": "Spieler4",
+      "team2": "Spieler3",
+      "playdayId": 1,
+      "id": 2
+    },
+    {
+      "team1": "Spieler1",
+      "team2": "Spieler3",
+      "playdayId": 2,
+      "id": 3
+    },
+    {
+      "team1": "Spieler2",
+      "team2": "Spieler4",
+      "playdayId": 2,
+      "id": 4
+    },
+    {
+      "team1": "Spieler1",
+      "team2": "Spieler4",
+      "playdayId": 3,
+      "id": 5
+    },
+    {
+      "team1": "Spieler3",
+      "team2": "Spieler2",
+      "playdayId": 3,
+      "id": 6
+    }
+  ]
+}

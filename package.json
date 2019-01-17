@@ -5,7 +5,7 @@
   "main": "backend.js",
   "scripts": {
     "start": "nodemon backend.js",
-    "start-db": "json-server --watch db.json",
+    "start-db": "json-server --watch db.json --host 10.93.28.194",
     "start:debug": "nodemon --inspect backend.js"
   },
   "author": "chauntalle",
